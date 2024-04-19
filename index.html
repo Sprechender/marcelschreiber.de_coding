@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bulma.css">
+
+    <title>m</title>
+
+    <script>
+      var i3 = 0;
+      var txt3 = 'marcelschreiber.de';
+      var speed3 = 15;
+      document.title = ""
+      function typeWriterTitle() {
+          if (i3 < txt3.length) {
+            document.title += txt3.charAt(i3);
+            i3++;
+            setTimeout(typeWriterTitle, speed3);
+          }
+        }
+      typeWriterTitle()
+    </script>
+
+  </head>
+  <body>
+  <section class="section">
+    <article class="message is-danger" id="wrong_domain_warning" style="display: none;">
+      <div class="message-header">
+        <p>huh?</p>
+        <button class="delete" aria-label="delete" onclick="document.getElementById('wrong_domain_warning').remove()"></button>
+      </div>
+      <div class="message-body">
+          Hmm, that's odd. It looks like you're on a different domain than the official one.
+          You might be a tester, developer, or user who ended up on the wrong page. <br>
+          Maybe you are on the wayback machine. If yes "Hi!" my site is preserved on archive.org <br>
+          <h4 class="title is-6 has-text-danger">If you're not aware that this might be a "cloned" site, please visit <a class="has-text-light" style="font-weight: normal;" href="marcelschreiber.de">marcelschreiber.de</a>.</h4>
+          Enjoy exploring the site!
+      </div>
+    </article>
+    <script>
+      if (window.location.hostname == "127.0.0.1" || window.location.hostname == "marcelschreiber.de") { // do nothing 
+      } else {
+        document.getElementById('wrong_domain_warning').style.display = "block";
+      }
+    </script>
+    <div class="container">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="https://marcelschreiber.de">
+                <h2 class="title is-6">marcelschreiber.de</h2>          
+              </a>
+            </div>
+        </nav>
+    </div>
+  </section>
+  <script>
+
+  </script>
+  <section class="hero is-large">
+    <div class="hero-body" id="heroBody1">
+      <p class="title" id="heroTitle1"></p>
+      <p class="subtitle" id="heroSubtitle1"></p>
+      <script>
+        function randomHeroImage() {
+          let heroBody1 = document.getElementById('heroBody1')
+
+          let imgId = Math.floor(Math.random() * 4)
+          if (imgId == 0) { imgId = 1 }
+          heroBody1.style.background = "url(img/hero/"+ imgId +"-transparent-alt.png)"
+          heroBody1.style.backgroundRepeat = "no-repeat"
+          heroBody1.style.backgroundPositionX = "right"
+          heroBody1.style.backgroundSize = "cover"
+        }
+        randomHeroImage()
+        
+        var i = 0;
+        var txt = 'Marcel Schreiber';
+        var speed = 50;
+        function typeWriter() {
+          if (i < txt.length) {
+            document.getElementById("heroTitle1").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+          }
+        }
+        typeWriter()
+
+        var i2 = 0;
+        var txt2 = 'Photography';
+        function typeWriter2() {
+          if (i2 < txt2.length) {
+            document.getElementById("heroSubtitle1").innerHTML += txt2.charAt(i2);
+            i2++;
+            setTimeout(typeWriter2, speed);
+          }
+        }
+        typeWriter2()
+      </script>
+    </div>
+  </section>
+  </body>
+</html>
